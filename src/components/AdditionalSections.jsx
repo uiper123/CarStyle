@@ -10,22 +10,13 @@ const AdditionalSections = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchCars = async () => {
-            try {
-                setLoading(true);
-                // Временно возвращаем пустой массив вместо запроса к API
-                setCars([]);
-                setError(null);
-            } catch (err) {
-                console.error('Error fetching cars:', err);
-                setError('Unable to load cars at this time');
-                setCars([]);
-            } finally {
-                setLoading(false);
-            }
-        };
+        // Имитируем загрузку данных
+        const timer = setTimeout(() => {
+            setLoading(false);
+            setCars([]); // Пустой массив вместо данных
+        }, 1000);
 
-        fetchCars();
+        return () => clearTimeout(timer);
     }, []);
 
     return (

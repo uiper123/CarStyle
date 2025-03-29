@@ -27,22 +27,13 @@ const ReviewsSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        setLoading(true);
-        // Временно возвращаем пустой массив вместо запроса к API
-        setReviews([]);
-        setError(null);
-      } catch (err) {
-        console.error('Error fetching reviews:', err);
-        setError('Unable to load reviews at this time');
-        setReviews([]);
-      } finally {
-        setLoading(false);
-      }
-    };
+    // Имитируем загрузку данных
+    const timer = setTimeout(() => {
+      setLoading(false);
+      setReviews([]); // Пустой массив вместо данных
+    }, 1000);
 
-    fetchReviews();
+    return () => clearTimeout(timer);
   }, []);
 
   const fetchCars = async () => {
@@ -163,7 +154,7 @@ const ReviewsSection = () => {
     return [...Array(5)].map((_, index) => (
       <FaStar
         key={index}
-        className={styles.star}
+        className="star"
         color={index < rating ? "#ffd700" : "#e4e5e9"}
       />
     ));
@@ -186,22 +177,28 @@ const ReviewsSection = () => {
   };
 
   if (loading) {
-    return <div className="loading-container">
-      <div className="loading-spinner"></div>
-      <p>Loading reviews...</p>
-    </div>;
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Loading reviews...</p>
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="error-container">
-      <p className="error-message">{error}</p>
-    </div>;
+    return (
+      <div className="error-container">
+        <p className="error-message">{error}</p>
+      </div>
+    );
   }
 
   if (reviews.length === 0) {
-    return <div className="no-reviews-container">
-      <p>No reviews available at the moment.</p>
-    </div>;
+    return (
+      <div className="no-reviews-container">
+        <p>No reviews available at the moment.</p>
+      </div>
+    );
   }
 
   return (
@@ -274,15 +271,7 @@ const ReviewsSection = () => {
             >
               <div className="review-header">
                 <div className="reviewer-info">
-                  {review.avatar_url ? (
-                    <img 
-                      src={review.avatar_url} 
-                      alt={`${review.firstname} ${review.lastname}`}
-                      className="reviewer-avatar"
-                    />
-                  ) : (
-                    <FaUser className={styles.avatarIcon} />
-                  )}
+                  <FaUser className="avatar-icon" />
                   <div className="reviewer-details">
                     <h3>{`${review.firstname} ${review.lastname}`}</h3>
                     <div className="rating">
@@ -291,7 +280,7 @@ const ReviewsSection = () => {
                   </div>
                 </div>
                 <span className="review-date">
-                  {new Date(review.created_at).toLocaleDateString('ru-RU')}
+                  {new Date(review.created_at).toLocaleDateString()}
                 </span>
                 {canDeleteReview(review) && (
                   <button
@@ -306,7 +295,7 @@ const ReviewsSection = () => {
 
               {review.car_id && (
                 <div className="review-car">
-                  Отзыв о: {review.car_brand} {review.car_model} ({review.car_year})
+                  Review for: {review.car_brand} {review.car_model} ({review.car_year})
                 </div>
               )}
 
