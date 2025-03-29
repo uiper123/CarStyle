@@ -9,56 +9,80 @@ const AdditionalSections = () => {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const apiUrl = import.meta.env.VITE_API_URL || '';
+
+  const fetchCars = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      console.log('Fetching cars from:', `${apiUrl}/api/cars`);
+      
+      const response = await axios.get(`${apiUrl}/api/cars`);
+      console.log('API Response:', response.data);
+
+      // Проверяем структуру ответа
+      if (Array.isArray(response.data)) {
+        setCars(response.data);
+      } else if (response.data.cars && Array.isArray(response.data.cars)) {
+        setCars(response.data.cars);
+      } else {
+        throw new Error('Invalid response format');
+      }
+    } catch (err) {
+      console.error('Error fetching cars:', err);
+      setError('Не удалось загрузить автомобили. Пожалуйста, попробуйте позже.');
+      setCars([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchCars = async () => {
-      try {
-        setLoading(true);
-        // Временно возвращаем пустой массив вместо запроса к API
-        setCars([]);
-        setError(null);
-      } catch (err) {
-        console.error('Error fetching cars:', err);
-        setError('Unable to load cars at this time');
-        setCars([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchCars();
-  }, []);
+  }, [apiUrl]);
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Загрузка автомобилей...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="error-container">
+        <p className="error-message">{error}</p>
+        <button onClick={fetchCars} className="retry-button">
+          Попробовать снова
+        </button>
+      </div>
+    );
+  }
+
+  if (!cars || cars.length === 0) {
+    return (
+      <div className="no-cars-container">
+        <p>Нет доступных автомобилей</p>
+      </div>
+    );
+  }
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Recommended Cars</h2>
-        {loading ? (
-          <div className="text-center py-8">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-          </div>
-        ) : error ? (
-          <div className="text-center py-8 text-red-600">
-            {error}
-          </div>
-        ) : cars.length === 0 ? (
-          <div className="text-center py-8 text-gray-600">
-            No cars available at the moment.
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {cars.map((car) => (
-              <motion.div
-                key={car.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <CarCard car={car} />
-              </motion.div>
-            ))}
-          </div>
-        )}
+    <section className="recommended-cars">
+      <h2>Рекомендуемые автомобили</h2>
+      <div className="cars-grid">
+        {cars.map((car, index) => (
+          <motion.div
+            key={car.car_id || car.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <CarCard car={car} />
+          </motion.div>
+        ))}
       </div>
     </section>
   );

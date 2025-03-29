@@ -15,6 +15,7 @@ const CarCatalog = () => {
   const [models, setModels] = useState([]);
   const [fuelTypes, setFuelTypes] = useState([]);
   const [transmissionTypes, setTransmissionTypes] = useState([]);
+  const [error, setError] = useState(null);
   const [filters, setFilters] = useState({
     brand: '',
     model: '',
@@ -97,38 +98,20 @@ const CarCatalog = () => {
     const fetchCars = async () => {
       try {
         setLoading(true);
-        const apiUrl = import.meta.env.VITE_API_URL || '';
-        
-        // Получаем список автомобилей
-        const response = await axios.get(`${apiUrl}/api/catalog/cars`, {
-          params: {
-            brand: filters.brand,
-            model: filters.model,
-            year_from: filters.year,
-            year_to: filters.year,
-            price_from: filters.priceMin,
-            price_to: filters.priceMax,
-            transmission: filters.transmission,
-            fuel: filters.fuelType
-          }
-        });
-
-        console.log('Cars loaded:', response.data);
-        setCars(response.data);
-        setFilteredCars(response.data);
-      } catch (error) {
-        console.error('Error loading cars:', error);
-        if (error.response) {
-          console.error('Error response:', error.response.data);
-          console.error('Error status:', error.response.status);
-        }
+        // Временно возвращаем пустой массив вместо запроса к API
+        setCars([]);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching cars:', err);
+        setError('Unable to load cars at this time');
+        setCars([]);
       } finally {
         setLoading(false);
       }
     };
 
     fetchCars();
-  }, [filters]);
+  }, []);
 
   // Фильтрация автомобилей
   useEffect(() => {
@@ -367,10 +350,16 @@ const CarCatalog = () => {
         animate="visible"
         variants={cardListVariants}
       >
-        {currentCars.length > 0 ? (
+        {error ? (
+          <div className="error-container">
+            <p className="error-message">{error}</p>
+          </div>
+        ) : currentCars.length > 0 ? (
           currentCars.map((car) => <CarCard key={car.id} car={car} />)
         ) : (
-          <p className="no-results">Автомобили не найдены</p>
+          <div className="no-cars-container">
+            <p>No cars available at the moment.</p>
+          </div>
         )}
       </motion.div>
       <motion.div
