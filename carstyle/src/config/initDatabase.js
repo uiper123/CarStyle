@@ -10,9 +10,9 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, '../../.env') });
 
 const dbConfig = {
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT || 3306
 };
 
@@ -24,12 +24,12 @@ export async function initDatabase() {
         console.log('Connected to MySQL successfully');
 
         // Create database if it doesn't exist
-        await connection.query('CREATE DATABASE IF NOT EXISTS carstyle;');
-        console.log('Successfully executed SQL query: CREATE DATABASE IF NOT EXISTS carstyle;');
+        await connection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME};`);
+        console.log(`Successfully executed SQL query: CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME};`);
 
         // Use the database
-        await connection.query('USE carstyle;');
-        console.log('Successfully executed SQL query: USE carstyle;');
+        await connection.query(`USE ${process.env.DB_NAME};`);
+        console.log(`Successfully executed SQL query: USE ${process.env.DB_NAME};`);
 
         // Read and execute SQL script
         const sqlScript = fs.readFileSync(path.join(__dirname, 'database.sql'), 'utf8');
