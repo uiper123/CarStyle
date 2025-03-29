@@ -13,6 +13,14 @@ export default defineConfig({
       }
     }
   },
+  optimizeDeps: {
+    include: ['html2pdf.js']
+  },
+  resolve: {
+    alias: {
+      'html2pdf.js': 'html2pdf.js/dist/html2pdf.bundle.min.js'
+    }
+  },
   server: {
     port: 3000
   }
