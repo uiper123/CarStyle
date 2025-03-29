@@ -1,0 +1,194 @@
+.userIconContainer {
+  position: relative;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  color: #8F8F8F;
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition: background-color 0.3s;
+  width: 48px;
+  height: 48px;
+}
+
+.iconButton:hover {
+  background-color: #1a1a1b;
+}
+
+.iconButton svg {
+  width: 24px;
+  height: 24px;
+}
+
+.avatarContainer {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #3d3d3e;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatarContainer:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.iconButton .avatarImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.avatarContainer:hover .avatarImage {
+  transform: scale(1.1);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  background: rgba(22, 22, 22, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  min-width: 200px;
+  z-index: 1000;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  animation: slideDown 0.2s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+}
+
+.dropdownAvatarContainer {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarIcon {
+  font-size: 1.5rem;
+  color: #8F8F8F;
+  margin-right: 0.75rem;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.userName {
+  font-weight: 500;
+  color: #fff;
+}
+
+.userEmail {
+  font-size: 0.875rem;
+  color: #8F8F8F;
+}
+
+.divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0.5rem 0;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: none;
+  color: #8F8F8F;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.menuItem:hover {
+  background-color: #2D2D2E;
+  color: #fff;
+}
+
+.menuItem svg {
+  font-size: 1rem;
+  color: #8F8F8F;
+}
+
+.menuItem:hover svg {
+  color: #fff;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .iconButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dropdown {
+    width: 100%;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    animation: slideUp 0.2s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+} 

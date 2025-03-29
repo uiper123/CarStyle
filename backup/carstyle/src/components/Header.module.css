@@ -1,0 +1,178 @@
+.header {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  background-color: rgba(22, 22, 22, 0.8);
+  border-radius: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.header.hide {
+  transform: translateX(-50%) translateY(-110%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.logo {
+  margin-left: 64px;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.navLink {
+  color: #8F8F8F;
+  text-decoration: none;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: #ddd;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.adminLink {
+  color: #e50000;
+  font-weight: 500;
+}
+
+.adminLink:hover {
+  color: #ff3333;
+}
+
+.adminLink::after {
+  background-color: #e50000;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.auth {
+  margin-right: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginButton {
+  color: #8F8F8F;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #2D2D2E;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.loginButton:hover {
+  background-color: #1a1a1b;
+}
+
+/* Стили для UserIcon в новом дизайне */
+.userIconContainer {
+  color: #8F8F8F;
+  background-color: #2D2D2E;
+  padding: 6px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userIconContainer:hover {
+  background-color: #1a1a1b;
+}
+
+.userIconContainer img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userIconContainer svg {
+  width: 24px;
+  height: 24px;
+  color: #8F8F8F;
+}
+
+@media (max-width: 768px) {
+  .header {
+    width: 90%;
+    flex-direction: column;
+    padding: 10px;
+    top: 5px;
+  }
+
+  .logo {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .auth {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .loginButton {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .userIconContainer {
+    width: 100%;
+    justify-content: center;
+  }
+} 

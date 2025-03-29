@@ -1,0 +1,567 @@
+.header {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  background-color: rgba(22, 22, 22, 0.8);
+  border-radius: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.header.hide {
+  transform: translateX(-50%) translateY(-110%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.logo {
+  margin-left: 64px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.navMenu {
+  display: flex;
+  gap: 20px;
+}
+
+.navLink {
+  color: #8F8F8F;
+  text-decoration: none;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: #ddd;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.adminLink {
+  color: #60a5fa;
+  font-weight: 500;
+  background-color: rgba(59, 130, 246, 0.1);
+  padding: 10px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.adminLink:hover {
+  color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.adminLink::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.2) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease-out;
+}
+
+.adminLink:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.adminLink .icon {
+  transition: transform 0.3s ease;
+}
+
+.adminLink:hover .icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.authSection {
+  margin-right: 64px;
+  position: relative;
+}
+
+/* Стили для кнопок входа */
+.authButtons {
+  display: flex;
+  gap: 16px;
+}
+
+.authButton {
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.login {
+  color: #8F8F8F;
+  background-color: #2D2D2E;
+}
+
+.login:hover {
+  background-color: #1a1a1b;
+  color: #ddd;
+}
+
+.register {
+  color: #8F8F8F;
+  background-color: #2D2D2E;
+}
+
+.register:hover {
+  background-color: #1a1a1b;
+  color: #ddd;
+}
+
+/* Стили для аватарки пользователя */
+.userMenu {
+  position: relative;
+}
+
+.userMenuButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #2D2D2E;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #8F8F8F;
+  transition: background-color 0.3s;
+}
+
+.userMenuButton:hover {
+  background-color: #1a1a1b;
+  color: #ddd;
+}
+
+.arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.userMenuButton:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.userDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 250px;
+  background-color: rgba(22, 22, 22, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  margin-top: 8px;
+  z-index: 1001;
+}
+
+.userInfo {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #333;
+  margin-bottom: 16px;
+}
+
+.userName {
+  font-weight: 600;
+  margin: 0;
+  color: #ddd;
+}
+
+.userEmail {
+  margin: 4px 0;
+  color: #8F8F8F;
+  font-size: 14px;
+}
+
+.userRole {
+  margin: 4px 0;
+  color: #60a5fa;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.userActions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dropdownItem {
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: #8F8F8F;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdownItem:hover {
+  background-color: #2D2D2E;
+  color: #ddd;
+}
+
+.adminPanel {
+  color: #60a5fa;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.adminPanel::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background-color: #60a5fa;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.adminPanel:hover::before {
+  transform: scaleY(1);
+}
+
+.logout {
+  color: #ef4444;
+}
+
+/* Стили для UserIcon в старом дизайне */
+.userIconContainer {
+  color: #8F8F8F;
+  background-color: #2D2D2E;
+  padding: 6px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userIconContainer:hover {
+  background-color: #1a1a1b;
+}
+
+.userIconContainer img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userIconContainer svg {
+  width: 24px;
+  height: 24px;
+  color: #8F8F8F;
+}
+
+@media (max-width: 768px) {
+  .header {
+    width: 90%;
+    flex-direction: column;
+    padding: 10px;
+    top: 5px;
+  }
+
+  .logo {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .navMenu {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .authSection {
+    margin-right: 0;
+    width: 100%;
+  }
+  
+  .authButtons {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .authButton {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .userMenuButton {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .userDropdown {
+    width: 100%;
+  }
+  
+  .userIconContainer {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+  }
+}
+
+.employee-dashboard .header {
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #404040;
+}
+
+.employee-dashboard .logo img {
+  filter: brightness(0.9);
+}
+
+.employee-dashboard .navLink {
+  color: #e5e7eb;
+}
+
+.employee-dashboard .navLink:hover {
+  color: #60a5fa;
+}
+
+.employee-dashboard .navLink::after {
+  background-color: #60a5fa;
+}
+
+.employee-dashboard .adminLink {
+  color: #60a5fa;
+  background-color: #404040;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.employee-dashboard .adminLink:hover {
+  color: #3b82f6;
+  background-color: #505050;
+  border-color: #60a5fa;
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3),
+              0 0 0 2px rgba(96, 165, 250, 0.1);
+}
+
+.employee-dashboard .adminLink::after {
+  background-color: #3b82f6;
+}
+
+.employee-dashboard .authButton {
+  background-color: #404040;
+  color: #e5e7eb;
+  border: 1px solid #505050;
+}
+
+.employee-dashboard .authButton:hover {
+  background-color: #505050;
+  color: #ffffff;
+}
+
+.employee-dashboard .login {
+  background-color: #404040;
+  color: #e5e7eb;
+  border: 1px solid #505050;
+}
+
+.employee-dashboard .login:hover {
+  background-color: #505050;
+  color: #ffffff;
+}
+
+.employee-dashboard .register {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+}
+
+.employee-dashboard .register:hover {
+  background-color: #2563eb;
+}
+
+.employee-dashboard .userMenuButton {
+  background-color: #404040;
+  color: #e5e7eb;
+  border: 1px solid #505050;
+}
+
+.employee-dashboard .userMenuButton:hover {
+  background-color: #505050;
+  color: #ffffff;
+}
+
+.employee-dashboard .userDropdown {
+  background-color: #2d2d2d;
+  border: 1px solid #404040;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.employee-dashboard .userInfo {
+  border-bottom-color: #404040;
+}
+
+.employee-dashboard .userName {
+  color: #e5e7eb;
+}
+
+.employee-dashboard .userEmail {
+  color: #9ca3af;
+}
+
+.employee-dashboard .userRole {
+  color: #60a5fa;
+}
+
+.employee-dashboard .dropdownItem {
+  color: #e5e7eb;
+}
+
+.employee-dashboard .dropdownItem:hover {
+  background-color: #404040;
+  color: #ffffff;
+}
+
+.employee-dashboard .adminPanel {
+  background-color: #404040;
+  color: #60a5fa;
+}
+
+.employee-dashboard .adminPanel:hover {
+  background-color: #505050;
+  color: #60a5fa;
+  padding-left: 20px;
+}
+
+.employee-dashboard .icon {
+  transition: all 0.3s ease;
+}
+
+.employee-dashboard .adminLink:hover .icon,
+.employee-dashboard .adminPanel:hover .icon {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 4px rgba(96, 165, 250, 0.5));
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(96, 165, 250, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(96, 165, 250, 0);
+  }
+}
+
+.employee-dashboard .adminLink.hasNotifications {
+  animation: pulse 2s infinite;
+}
+
+.employee-dashboard .dropdownItem {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.employee-dashboard .dropdownItem::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #60a5fa;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.employee-dashboard .dropdownItem:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.employee-dashboard .adminLink.active,
+.employee-dashboard .adminPanel.active {
+  background-color: rgba(96, 165, 250, 0.2);
+  border-color: #60a5fa;
+}
+
+/* Обновленные стили для темной темы в мобильной версии */
+@media (max-width: 768px) {
+  .employee-dashboard .header {
+    background-color: #2d2d2d;
+  }
+  
+  .employee-dashboard .navMenu {
+    border-top: 1px solid #404040;
+    border-bottom: 1px solid #404040;
+    padding: 10px 0;
+  }
+  
+  .employee-dashboard .authSection {
+    background-color: #2d2d2d;
+  }
+} 

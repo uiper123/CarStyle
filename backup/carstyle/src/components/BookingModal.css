@@ -1,0 +1,432 @@
+.booking-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.booking-modal {
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  padding: 40px;
+  width: 95%;
+  max-width: 900px;
+  max-height: 95vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalFadeIn 0.3s ease-in-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close-button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.booking-modal h2 {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.form-section {
+  margin-bottom: 40px;
+}
+
+.form-section h3 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.date-picker-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.date-picker-container label {
+  display: block;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #2d2d2e;
+  color: #fff;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-grid input {
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #2d2d2e;
+  color: #fff;
+  font-size: 16px;
+  height: 50px;
+}
+
+.form-grid input:hover {
+  border-color: #444;
+}
+
+.form-grid input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.form-grid input:focus::placeholder {
+  color: rgba(255, 78, 80, 0.5);
+}
+
+.additional-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.additional-services label {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  gap: 12px;
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.additional-services label:hover {
+  background-color: #1a1a1a;
+}
+
+.additional-services label input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  margin-right: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #1a1a1a;
+}
+
+.additional-services label input[type="checkbox"]:checked {
+  background-color: #333;
+  border-color: #444;
+}
+
+.additional-services label input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  color: #fff;
+  font-size: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.additional-services label:hover input[type="checkbox"] {
+  border-color: #444;
+}
+
+.total-section {
+  background-color: #2d2d2e;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.total-details {
+  margin-bottom: 20px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  color: #fff;
+  border-bottom: 1px solid #333;
+  font-size: 18px;
+}
+
+.total-row:last-child {
+  border-bottom: none;
+}
+
+.total-sum {
+  border-top: 2px solid #333;
+  background-color: #1a1a1a;
+  border-radius: 0 0 8px 8px;
+  padding: 20px !important;
+  margin-top: 20px;
+}
+
+.total-sum span:last-child {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 18px;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 2px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #333;
+  border-color: #444;
+  transform: translateY(-2px);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.date-picker-wrapper {
+  position: relative;
+}
+
+.date-picker-wrapper label {
+  display: block;
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.custom-datepicker {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #2d2d2e;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+}
+
+.custom-datepicker:hover {
+  border-color: #444;
+}
+
+/* Стили для календаря */
+.react-datepicker {
+  font-family: inherit !important;
+  background-color: #2d2d2e !important;
+  border: 1px solid #444 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.react-datepicker__header {
+  background-color: #1a1a1a !important;
+  border-bottom: 1px solid #444 !important;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  padding-top: 10px !important;
+}
+
+.react-datepicker__current-month {
+  color: #fff !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+}
+
+.react-datepicker__day-name {
+  color: #666 !important;
+  margin: 5px !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  line-height: 2.5rem !important;
+  font-size: 16px !important;
+}
+
+.react-datepicker__day {
+  color: #fff !important;
+  margin: 5px !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  line-height: 2.5rem !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+  font-size: 16px !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+.react-datepicker__day--disabled {
+  color: #666 !important;
+  cursor: not-allowed !important;
+}
+
+.react-datepicker__navigation {
+  top: 15px !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #666 !important;
+  border-width: 2px 2px 0 0 !important;
+  height: 8px !important;
+  width: 8px !important;
+}
+
+.react-datepicker__day--in-range {
+  background-color: rgba(0, 123, 255, 0.3) !important;
+}
+
+.react-datepicker__day--in-selecting-range {
+  background-color: rgba(0, 123, 255, 0.2) !important;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .form-grid,
+  .additional-services {
+    grid-template-columns: 1fr;
+  }
+
+  .date-picker-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .booking-modal h2 {
+    font-size: 28px;
+  }
+
+  .form-section h3 {
+    font-size: 22px;
+  }
+
+  .form-grid input,
+  .custom-datepicker,
+  .additional-services label,
+  .total-row {
+    font-size: 16px;
+  }
+
+  .total-sum {
+    font-size: 18px;
+  }
+
+  .total-sum span:last-child {
+    font-size: 22px;
+  }
+
+  .submit-button {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .booking-modal {
+    padding: 30px;
+  }
+}
+
+/* Стили для скроллбара */
+.booking-modal::-webkit-scrollbar {
+  width: 10px;
+}
+
+.booking-modal::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 5px;
+}
+
+.booking-modal::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+}
+
+.booking-modal::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Обновленные стили для полей ввода при наведении */
+input:focus {
+  border-color: #333 !important;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.2);
+}
+
+/* Обновленные стили для активных состояний */
+.form-grid input:active,
+.custom-datepicker:active {
+  border-color: #444;
+} 

@@ -1,0 +1,129 @@
+/* src/styles/Footer.css */
+@import url('https://fonts.cdnfonts.com/s/289170/TildaSans-VF.woff2');
+
+.footer {
+  background-color: #1a1a1b;
+  color: #8f8f8f;
+  padding: 40px 20px;
+  margin-top: 40px;
+  font-family: 'Tilda Sans VF', sans-serif;
+  font-weight: 600;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-logo {
+  text-align: center;
+}
+
+.footer-logo-img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footer-brand {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 0 0 5px;
+}
+
+.footer-slogan {
+  font-size: 14px;
+  color: #cccccc;
+  margin: 0;
+}
+
+.footer-nav h3,
+.footer-contacts h3,
+.footer-social h3 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav ul li {
+  margin-bottom: 10px;
+}
+
+.footer-nav ul li a {
+  color: #8f8f8f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-nav ul li a:hover {
+  color: #ffffff;
+}
+
+.footer-contacts p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.footer-contacts a {
+  color: #8f8f8f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contacts a:hover {
+  color: #ffffff;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #2d2d2e;
+  margin-top: 40px;
+  color: #cccccc;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}

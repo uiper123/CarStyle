@@ -1,0 +1,279 @@
+.documents-section {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.documents-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.documents-loading,
+.documents-error,
+.documents-empty {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #666;
+}
+
+.documents-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.document-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.document-info {
+    flex: 1;
+}
+
+.document-number {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.document-car {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.document-dates {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.document-status {
+    font-size: 14px;
+    color: #666;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.status-badge.active {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-badge.rented {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.status-badge.completed {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.document-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.document-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.document-button.view {
+    background-color: #007bff;
+    color: white;
+}
+
+.document-button.download {
+    background-color: #28a745;
+    color: white;
+}
+
+.document-button.close {
+    background-color: #6c757d;
+    color: white;
+}
+
+.document-button:hover {
+    opacity: 0.9;
+}
+
+/* Модальное окно */
+.document-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.document-modal {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.document-modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.document-modal-title {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+}
+
+.document-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+}
+
+.document-modal-content {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.document-content {
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.document-modal-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .documents-section {
+        padding: 10px;
+    }
+
+    .documents-list {
+        grid-template-columns: 1fr;
+    }
+
+    .document-modal {
+        width: 95%;
+    }
+}
+
+.encryption-notice {
+    display: flex;
+    align-items: center;
+    background-color: #f0f8ff;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.encryption-icon {
+    color: #3498db;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.encryption-notice p {
+    margin: 0;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.document-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.encrypted-badge {
+    display: flex;
+    align-items: center;
+    background-color: rgba(52, 152, 219, 0.1);
+    color: #3498db;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+.lock-icon {
+    font-size: 10px;
+    margin-right: 4px;
+}
+
+.button-icon {
+    margin-right: 6px;
+}
+
+.modal-badge {
+    margin-left: 10px;
+    font-size: 11px;
+}
+
+.security-notice {
+    display: flex;
+    align-items: center;
+    background-color: rgba(46, 204, 113, 0.1);
+    padding: 10px 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px dashed rgba(46, 204, 113, 0.4);
+}
+
+.shield-icon {
+    color: #2ecc71;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.security-notice p {
+    margin: 0;
+    color: #27ae60;
+    font-size: 14px;
+} 

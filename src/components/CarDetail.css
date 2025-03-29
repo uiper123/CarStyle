@@ -1,0 +1,429 @@
+/* General Styling */
+.car-detail {
+    background-color: #1a1a1b;
+    min-height: 100vh;
+    padding-top: 100px;
+}
+
+.car-detail-container {
+    display: grid;
+    grid-template-columns: 1fr 450px;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    background: #222223;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.car-images {
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+
+.main-image {
+    width: 100%;
+    height: calc(100% - 100px);
+    position: relative;
+    overflow: hidden;
+    background: #1a1a1b;
+}
+
+.main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-thumbnails {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(26, 26, 27, 0.9);
+}
+
+.thumbnail {
+    width: 80px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.thumbnail.active {
+    opacity: 1;
+    border: 2px solid #333;
+}
+
+.car-info {
+    padding: 30px;
+    background: #222223;
+    overflow-y: auto;
+}
+
+.car-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.car-title {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.car-info h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+    color: #ffffff;
+}
+
+.price {
+    font-size: 28px;
+    color: #999;
+    margin: 0;
+}
+
+.rating {
+    color: #FFD700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.quick-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.quick-spec-item {
+    background: #2a2a2b;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.quick-spec-label {
+    color: #666;
+    font-size: 13px;
+}
+
+.quick-spec-value {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Обновляем стили для характеристик */
+.car-specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+    padding: 0 15px;
+}
+
+.spec-item {
+    background: #2a2a2b;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 80px;
+}
+
+/* Расположение элементов по два в ряд */
+.spec-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.spec-item:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.spec-item:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.spec-item:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.spec-icon {
+    color: #888;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+}
+
+.spec-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.spec-label {
+    color: #888;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.spec-value {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+/* Выносим бронирование в отдельный блок */
+.booking-container {
+    max-width: 450px;
+    margin: 0;
+    padding: 0 15px;
+}
+
+.booking-section {
+    background: #222223;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Выносим описание в отдельный блок */
+.description-container,
+.reviews-section {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.description {
+    background: #222223;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.description h2 {
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.description p {
+    color: #999;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.reviews-section {
+    background: #222223;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.price-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.price-label {
+    color: #888;
+    font-size: 14px;
+}
+
+.price-value {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.booking-button {
+    width: 100%;
+    padding: 12px;
+    background: #2a2a2b;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.booking-button:hover {
+    background: #333334;
+}
+
+.back-button {
+    padding: 8px 16px;
+    background-color: #1a1a1b;
+    color: #8f8f8f;
+    border: 1px solid #3b3b3c;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #2d2d2e;
+    color: #ffffff;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    font-size: 16px;
+    color: #8f8f8f;
+}
+
+/* Стилизация скроллбара для image-thumbnails */
+.image-thumbnails::-webkit-scrollbar {
+    height: 6px;
+}
+
+.image-thumbnails::-webkit-scrollbar-track {
+    background: #1a1a1b;
+    border-radius: 4px;
+}
+
+.image-thumbnails::-webkit-scrollbar-thumb {
+    background: #3b3b3c;
+    border-radius: 4px;
+}
+
+.image-thumbnails::-webkit-scrollbar-thumb:hover {
+    background: #4a4a4b;
+}
+
+@media (max-width: 1200px) {
+    .car-detail-container,
+    .description-container,
+    .booking-container {
+        margin: 20px;
+    }
+
+    .car-images {
+        height: 400px;
+    }
+
+    .main-image {
+        height: calc(100% - 100px);
+    }
+
+    .car-info {
+        max-height: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .car-detail {
+        padding-top: 80px;
+    }
+
+    .car-detail-container {
+        grid-template-columns: 1fr;
+        margin: 10px;
+    }
+
+    .booking-container {
+        max-width: 100%;
+        padding: 0;
+        margin: 20px 10px;
+    }
+
+    .booking-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .description-container,
+    .reviews-section {
+        padding: 0 10px;
+        margin: 20px 10px;
+    }
+
+    .description,
+    .booking-section {
+        padding: 20px;
+    }
+
+    .booking-button {
+        width: 100%;
+        min-width: unset;
+        padding: 14px 20px;
+    }
+
+    .car-images {
+        height: 300px;
+    }
+
+    .car-info {
+        padding: 20px;
+    }
+
+    .car-specs {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 0;
+    }
+
+    .spec-item {
+        padding: 20px;
+        min-height: 80px;
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+
+    .spec-icon {
+        font-size: 20px;
+        min-width: 24px;
+    }
+
+    .spec-label {
+        font-size: 14px;
+    }
+
+    .spec-value {
+        font-size: 18px;
+    }
+
+    .car-info h1 {
+        font-size: 24px;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+}

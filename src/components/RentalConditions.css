@@ -1,0 +1,81 @@
+/* src/styles/RentalConditions.css */
+
+.rental-conditions {
+    padding: 60px 20px;
+    background-color: #1a1a1b;
+    color: #8F8F8F;
+  }
+  
+  .conditions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .conditions-container h2 {
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .conditions-subtitle {
+    font-size: 16px;
+    color: #cccccc;
+    margin-bottom: 40px;
+  }
+  
+  .conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .condition-card {
+    background-color: #2D2D2E;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .condition-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .condition-icon {
+    margin-bottom: 20px;
+  }
+  
+  .condition-icon img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .condition-card h3 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+  
+  .condition-card p {
+    font-size: 16px;
+    color: #cccccc;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .conditions-container h2 {
+      font-size: 28px;
+    }
+  
+    .conditions-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .condition-card {
+      padding: 20px;
+    }
+  }

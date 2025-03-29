@@ -1,0 +1,102 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 1;
+    transition: opacity 1.5s ease, visibility 1.5s ease; /* Увеличиваем время transition до 1.5 секунд */
+    visibility: visible;
+  }
+  
+  .preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease, visibility 0s linear 1.5s; /* Добавляем задержку для visibility */
+  }
+  
+  .car-container {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    margin-bottom: 20px;
+    overflow: hidden; /* Предотвращаем выход за границы */
+  }
+  
+  .car-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: drive 2s linear infinite;
+  }
+  
+  .road {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #8f8f8f;
+    overflow: hidden;
+  }
+  
+  .road::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        #1a1a1b 0px,
+        #1a1a1b 20px,
+        #8f8f8f 20px,
+        #8f8f8f 40px
+    );
+    animation: roadMove 1s linear infinite;
+  }
+  
+  @keyframes drive {
+    0% {
+        left: 0;
+        transform: translateY(-50%) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-50%) rotate(5deg);
+    }
+    75% {
+        transform: translateY(-50%) rotate(-5deg);
+    }
+    100% {
+        left: calc(100% - 50px); /* Останавливаемся перед правой границей */
+        transform: translateY(-50%) rotate(0deg);
+    }
+  }
+  
+  @keyframes roadMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-40px);
+    }
+  }
+  
+  .loading-text {
+    color: #8f8f8f;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 16px;
+    min-height: 22px;
+  }

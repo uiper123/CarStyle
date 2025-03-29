@@ -1,0 +1,599 @@
+.reviewsContainer {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: #F7CA18;
+  border-radius: 2px;
+}
+
+.addReviewButton {
+  display: block;
+  margin: 0 auto 2rem;
+  padding: 0.8rem 1.5rem;
+  background: #F7CA18;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addReviewButton:hover {
+  background: #f8d44d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(247, 202, 24, 0.3);
+}
+
+.reviewForm {
+  background: rgba(22, 22, 22, 0.8);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ratingContainer {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.starButton {
+  background: none;
+  border: none;
+  color: #8F8F8F;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.starButton.active {
+  color: #F7CA18;
+}
+
+.commentInput {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  background: rgba(22, 22, 22, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.commentInput:focus {
+  outline: none;
+  border-color: #F7CA18;
+  box-shadow: 0 0 0 2px rgba(247, 202, 24, 0.25);
+}
+
+.submitButton {
+  padding: 0.8rem 1.5rem;
+  background: #F7CA18;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #f8d44d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(247, 202, 24, 0.3);
+}
+
+.submitButton:disabled {
+  background: #8F8F8F;
+  cursor: not-allowed;
+}
+
+.reviewsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.reviewCard {
+  background: rgba(22, 22, 22, 0.8);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatarIcon {
+  width: 40px;
+  height: 40px;
+  color: #8F8F8F;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.userName {
+  color: #fff;
+  font-weight: 500;
+}
+
+.reviewDate {
+  color: #999;
+  font-size: 12px;
+}
+
+.adminRole {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: 500;
+  background-color: #ff4757;
+  color: white;
+}
+
+.staffRole {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: 500;
+  background-color: #2e86de;
+  color: white;
+}
+
+.rating {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.star {
+  color: #F7CA18;
+  font-size: 1.1rem;
+}
+
+.comment {
+  color: #fff;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.2s;
+}
+
+.deleteButton:hover {
+  color: #ff4d4d;
+  transform: scale(1.1);
+}
+
+.loading {
+  text-align: center;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .reviewsContainer {
+    padding: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .reviewForm {
+    padding: 1rem;
+  }
+
+  .reviewsList {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonialsSection {
+  padding: 40px 20px;
+  background-color: #1a1a1b;
+  color: #ffffff;
+}
+
+.testimonialsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonialsHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.testimonialsHeader h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.testimonialsHeader p {
+  color: #8f8f8f;
+  font-size: 16px;
+}
+
+.addReviewButton {
+  display: block;
+  margin: 0 auto 30px;
+  padding: 12px 24px;
+  background-color: #2d2d2e;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.addReviewButton:hover {
+  background-color: #3d3d3e;
+}
+
+.reviewForm {
+  background-color: #2d2d2e;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.ratingContainer {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.starButton {
+  background: none;
+  border: none;
+  color: #e4e5e9;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.starButton.active {
+  color: #ffd700;
+}
+
+.commentInput {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  background-color: #1a1a1b;
+  border: 1px solid #3d3d3e;
+  border-radius: 5px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  resize: vertical;
+}
+
+.submitButton {
+  padding: 12px 24px;
+  background-color: #4a90e2;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #357abd;
+}
+
+.submitButton:disabled {
+  background-color: #2d2d2e;
+  cursor: not-allowed;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.testimonialCard {
+  background-color: #2d2d2e;
+  border-radius: 15px;
+  padding: 25px;
+  transition: transform 0.3s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-5px);
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatarIcon {
+  width: 50px;
+  height: 50px;
+  color: #8f8f8f;
+}
+
+.userName {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.reviewDate {
+  font-size: 14px;
+  color: #8f8f8f;
+  margin-top: 4px;
+}
+
+.adminRole, .staffRole {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.adminRole {
+  background-color: #ffd700;
+  color: #000000;
+}
+
+.staffRole {
+  background-color: #4a90e2;
+  color: #ffffff;
+}
+
+.rating {
+  margin-bottom: 15px;
+}
+
+.star {
+  margin-right: 2px;
+}
+
+.comment {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #cccccc;
+  margin-bottom: 20px;
+}
+
+.reviewActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #3d3d3e;
+}
+
+.likeButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #8f8f8f;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.likeButton:hover {
+  background-color: #3d3d3e;
+  color: #ffffff;
+}
+
+.likeButton.liked {
+  color: #4a90e2;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #8f8f8f;
+  font-size: 18px;
+}
+
+.noReviews {
+  text-align: center;
+  color: #8f8f8f;
+  font-size: 16px;
+  grid-column: 1 / -1;
+  padding: 40px;
+}
+
+@media (max-width: 768px) {
+  .testimonialsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .testimonialCard {
+    padding: 20px;
+  }
+  
+  .userName {
+    font-size: 16px;
+  }
+  
+  .comment {
+    font-size: 14px;
+  }
+}
+
+.reviewCar {
+  color: #F7CA18;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(247, 202, 24, 0.1);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* Стили для модального окна удаления */
+.deleteModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.deleteContent {
+  background: #2a2a2b;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.deleteContent h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.deleteDescription {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.confirmDeleteButton {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 1rem;
+}
+
+.confirmDeleteButton:hover:not(:disabled) {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+
+.confirmDeleteButton:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.cancelDeleteButton {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancelDeleteButton:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
+
+.carInfo {
+  color: #F7CA18;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: rgba(247, 202, 24, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+}

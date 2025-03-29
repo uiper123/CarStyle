@@ -1,0 +1,210 @@
+/* src/styles/AboutUs.css */
+@import url('https://fonts.cdnfonts.com/s/289170/TildaSans-VF.woff2');
+
+.about-us {
+  background-color: #1a1a1b;
+  color: #8f8f8f;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: 'Tilda Sans VF', sans-serif;
+  font-weight: 600;
+}
+
+/* Геройский блок */
+.about-hero {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('public/logo/lamba.jpg'); /* Замените на реальное изображение */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin-top: 80px; /* Отступ от фиксированной шапки */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title {
+  color: #ffffff;
+  font-size: 48px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  color: #cccccc;
+  font-size: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Основной контент */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.about-section {
+  background-color: #2d2d2e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.about-section:hover {
+  transform: translateY(-5px);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.section-icon {
+  color: #ffd700;
+  font-size: 24px;
+}
+
+.about-section h2 {
+  color: #ffffff;
+  font-size: 24px;
+  margin: 0;
+}
+
+.about-section p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.about-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-section ul li {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.about-section ul li:before {
+  content: '✔';
+  color: #ffd700;
+  position: absolute;
+  left: 0;
+}
+
+/* Секция с командой */
+.team-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.team-section h2 {
+  color: #ffffff;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.team-card {
+  position: relative;
+  background-color: #2d2d2e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: scale(1.05);
+}
+
+.team-image-container {
+  position: relative;
+  width: 100%; /* Автоматическая ширина */
+  padding-top: 100%; /* Соотношение сторон 1:1 (квадрат) */
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Изображение подстраивается, сохраняя пропорции */
+  object-position: center; /* Центрирование изображения */
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-image-hover {
+  opacity: 0;
+}
+
+.team-card h3 {
+  color: #ffffff;
+  font-size: 25px;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.team-card p {
+  font-size: 20px;
+  color: #cccccc;
+  position: relative;
+}
+
+.hover-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+.team-card h3,
+.team-card p {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .about-section h2 {
+    font-size: 20px;
+  }
+
+  .team-section h2 {
+    font-size: 24px;
+  }
+
+  .team-card h3 {
+    font-size: 16px;
+  }
+
+  .team-image-container {
+    padding-top: 125%; /* Немного больше для адаптации на мобильных */
+  }
+}
