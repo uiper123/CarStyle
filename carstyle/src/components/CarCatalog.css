@@ -1,0 +1,231 @@
+/* src/styles/CarCatalog.css */
+@import url('https://fonts.cdnfonts.com/s/289170/TildaSans-VF.woff2');
+
+.car-catalog {
+  background-color: #1a1a1b;
+  color: #8f8f8f;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: 'Tilda Sans VF', sans-serif;
+  font-weight: 600;
+}
+
+.catalog-header {
+  margin-top: 80px; /* Отступ от фиксированной шапки */
+}
+
+.catalog-title {
+  color: #ffffff;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.catalog-subtitle {
+  color: #cccccc;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+  background-color: #2d2d2e;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.filters::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #4a4a4b, transparent);
+}
+
+.filters select,
+.filters input[type="text"],
+.filters input[type="number"] {
+  padding: 12px 15px;
+  border: 1px solid #3a3a3b;
+  border-radius: 8px;
+  background-color: #1a1a1b;
+  color: #8f8f8f;
+  font-size: 14px;
+  width: 180px;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  cursor: pointer;
+}
+
+.filters select:hover,
+.filters input[type="text"]:hover,
+.filters input[type="number"]:hover {
+  border-color: #4a4a4b;
+  background-color: #202021;
+}
+
+.filters select:focus,
+.filters input[type="text"]:focus,
+.filters input[type="number"]:focus {
+  border-color: #5a5a5b;
+  box-shadow: 0 0 0 2px rgba(74, 74, 75, 0.2);
+  outline: none;
+}
+
+.search-input {
+  width: 250px;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>');
+  background-position: left 10px center;
+  padding-left: 40px;
+}
+
+.price-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #1a1a1b;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #3a3a3b;
+  width: 100%;
+}
+
+.price-inputs {
+  display: flex;
+  gap: 15px;
+}
+
+.price-input {
+  width: 120px;
+  padding: 10px;
+  border: 1px solid #3a3a3b;
+  border-radius: 6px;
+  background-color: #202021;
+  color: #8f8f8f;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.price-input:focus {
+  border-color: #4a4a4b;
+  box-shadow: 0 0 0 2px rgba(74, 74, 75, 0.2);
+  outline: none;
+}
+
+.price-slider {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  background: #3a3a3b;
+  border-radius: 2px;
+  outline: none;
+  margin: 10px 0;
+}
+
+.price-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #4a4a4b;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.price-slider::-webkit-slider-thumb:hover {
+  background: #5a5a5b;
+  transform: scale(1.1);
+}
+
+.price-range {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #202021;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #8f8f8f;
+  border: 1px solid #3a3a3b;
+}
+
+.car-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.no-results {
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.pagination-button {
+  padding: 10px 15px;
+  background-color: #161616;
+  border: none;
+  border-radius: 5px;
+  color: #8f8f8f;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 14px;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #2d2d2e;
+  color: #ffffff;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-button.active {
+  background-color: #2d2d2e;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .car-list {
+    grid-template-columns: 1fr;
+  }
+  .filters {
+    padding: 15px;
+  }
+  .filters select,
+  .filters input[type="text"],
+  .filters input[type="number"] {
+    width: 100%;
+  }
+  .price-input {
+    width: 100%;
+  }
+  .price-inputs {
+    flex-direction: column;
+  }
+}

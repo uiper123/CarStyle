@@ -1,0 +1,237 @@
+/* src/styles/Contacts.css */
+@import url('https://fonts.cdnfonts.com/s/289170/TildaSans-VF.woff2');
+
+.contacts {
+  background-color: #1a1a1b;
+  color: #8f8f8f;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: 'Tilda Sans VF', sans-serif;
+  font-weight: 600;
+}
+
+/* Геройский блок с фоновой картинкой */
+.contacts-hero {
+  position: relative;
+  text-align: center;
+  padding: 120px 20px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('public/logo/lamba.jpg'); /* Фоновое изображение с затемнением */
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  margin-top: 80px; /* Отступ от фиксированной шапки */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-size: 48px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  animation: fadeInDown 1s ease-out;
+}
+
+.hero-subtitle {
+  color: #cccccc;
+  font-size: 20px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 1s ease-out 0.5s backwards;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Основной контент */
+.contacts-content {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  flex: 1;
+  background-color: #2d2d2e; /* Сплошной фон */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.contact-info:hover {
+  transform: translateY(-5px);
+}
+
+.contact-info-title {
+  color: #ffffff;
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.contact-icon {
+  color: #8f8f8f; /* Серый акцент */
+  font-size: 24px;
+}
+
+.contact-info p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contact-hours {
+  font-size: 14px;
+  color: #cccccc;
+  margin-top: 15px;
+}
+
+.contact-form {
+  flex: 1;
+  background-color: #2d2d2e; /* Сплошной фон */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-5px);
+}
+
+.contact-form-title {
+  color: #ffffff;
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: #cccccc;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1c1c1c;
+  color: #ffffff;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  background-color: #252526;
+  outline: none;
+}
+
+.form-group textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #161616; /* Сероватый фон */
+  color: #8f8f8f; /* Серый текст */
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #2d2d2e; /* Более тёмный серый при наведении */
+  color: #ffffff;
+}
+
+/* Секция с картой */
+.map-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.map-title {
+  color: #ffffff;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.map-container {
+  background-color: #2d2d2e; /* Сплошной фон */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.map-container iframe {
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .contacts-hero {
+    padding: 80px 20px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .contacts-content {
+    flex-direction: column;
+  }
+
+  .contact-info-title,
+  .contact-form-title,
+  .map-title {
+    font-size: 24px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 14px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+  }
+
+  .map-container {
+    height: 300px;
+  }
+}

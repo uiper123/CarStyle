@@ -1,0 +1,594 @@
+/* src/styles/ReviewsSection.css */
+
+.reviews-section {
+    padding: 40px 20px;
+    background-color: #1a1a1b;
+    color: #ffffff;
+  }
+  
+  .reviews-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .reviews-container h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #ffffff;
+  }
+  
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .review-card {
+    background-color: #2d2d2e;
+    border-radius: 15px;
+    padding: 25px;
+    transition: transform 0.3s ease;
+  }
+  
+  .review-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .review-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .user-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #8f8f8f;
+    border-radius: 50%;
+  }
+  
+  .user-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #ffffff;
+  }
+  
+  .user-info p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #8f8f8f;
+  }
+  
+  .review-car-name {
+    margin: 3px 0 0;
+    font-size: 12px;
+    color: #666666;
+    font-style: italic;
+  }
+  
+  .review-car-name span {
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .review-car-name span:hover {
+    color: #8f8f8f;
+  }
+  
+  .review-rating {
+    color: #ffd700;
+    font-size: 20px;
+  }
+  
+  .review-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-bottom: 20px;
+  }
+  
+  .review-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .review-actions span {
+    color: #8f8f8f;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .review-actions span:hover {
+    color: #ffffff;
+  }
+  
+  .write-review-button {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 30px;
+    background-color: #2d2d2e;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .write-review-button:hover {
+    background-color: #3d3d3e;
+    transform: translateY(-2px);
+  }
+  
+  .review-form-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #2d2d2e;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .review-input,
+  .review-textarea,
+  .review-select {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a1a1b;
+    border: 1px solid #3d3d3e;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+  }
+  
+  .review-input:focus,
+  .review-textarea:focus,
+  .review-select:focus {
+    outline: none;
+    border-color: #8f8f8f;
+  }
+  
+  .review-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    background-color: #1a1a1b;
+    border: 1px solid #3d3d3e;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+  }
+  
+  .review-textarea:focus {
+    outline: none;
+    border-color: #8f8f8f;
+  }
+  
+  .rating-select {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .rating-select label {
+    color: #8f8f8f;
+    font-size: 16px;
+  }
+  
+  .submit-review-button {
+    padding: 12px 24px;
+    background-color: #2d2d2e;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-review-button:hover {
+    background-color: #3d3d3e;
+  }
+  
+  @media (max-width: 768px) {
+    .reviews-container h2 {
+      font-size: 24px;
+    }
+  
+    .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .review-form-container {
+      padding: 20px;
+    }
+  }
+/* Добавляем стили для звездного рейтинга */
+.star-rating {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.star-rating label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star-rating svg {
+  transition: all 0.2s ease;
+}
+
+.star-rating label:hover svg {
+  transform: scale(1.2);
+}
+
+/* Стили для главной страницы */
+.testimonials-section {
+  padding: 4rem 2rem;
+  background: transparent;
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: none;
+  border: none;
+}
+
+.testimonials-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.testimonials-header h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.testimonials-header p {
+  color: #8F8F8F;
+  font-size: 1.1rem;
+}
+
+.add-review-button {
+  display: block;
+  margin: 0 auto 2rem;
+  padding: 1rem 2rem;
+  background: #F7CA18;
+  color: #1a1a1b;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(247, 202, 24, 0.2);
+}
+
+.add-review-button:hover {
+  background: #f8d34a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(247, 202, 24, 0.3);
+}
+
+.review-form {
+  background: rgba(45, 45, 46, 0.8);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.rating-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.star-button {
+  background: none;
+  border: none;
+  color: #8F8F8F;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.5rem;
+}
+
+.star-button.active {
+  color: #F7CA18;
+}
+
+.comment-input {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  background: rgba(22, 22, 22, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.comment-input:focus {
+  outline: none;
+  border-color: #F7CA18;
+  box-shadow: 0 0 0 2px rgba(247, 202, 24, 0.25);
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  background: #F7CA18;
+  color: #1a1a1b;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #f8d34a;
+  transform: translateY(-2px);
+}
+
+.submit-button:disabled {
+  background: #8F8F8F;
+  cursor: not-allowed;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: rgba(45, 45, 46, 0.8);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-avatar-icon {
+  width: 50px;
+  height: 50px;
+  color: #8F8F8F;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.user-info h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.user-info p {
+  margin: 0.25rem 0;
+  color: #8F8F8F;
+  font-size: 0.9rem;
+}
+
+.review-car {
+  color: #F7CA18 !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.delete-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(220, 53, 69, 0.1);
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.delete-button:hover {
+  color: #fff;
+  background: #dc3545;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+}
+
+.delete-button svg {
+  font-size: 1rem;
+}
+
+.rating {
+  color: #F7CA18;
+  margin-bottom: 1rem;
+}
+
+.star {
+  font-size: 1.2rem;
+  margin-right: 0.25rem;
+}
+
+.review-text {
+  color: #fff;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.review-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.like-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: #8F8F8F;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.like-button:hover {
+  color: #ff4444;
+  background: rgba(255, 68, 68, 0.1);
+  transform: translateY(-2px);
+}
+
+.like-button.liked {
+  color: #ff4444;
+}
+
+.like-button svg {
+  font-size: 1.1rem;
+}
+
+.loading {
+  text-align: center;
+  color: #8F8F8F;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 2rem 1rem;
+    margin: 1rem;
+  }
+
+  .testimonials-header h2 {
+    font-size: 2rem;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-form {
+    padding: 1.5rem;
+  }
+
+  .comment-input {
+    min-height: 100px;
+  }
+  
+  .review-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .like-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Status badges for car management */
+.car-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.user-role {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.admin-role {
+  background-color: #e50000;
+  color: white;
+}
+
+.staff-role {
+  background-color: #2e86de;
+  color: white;
+}

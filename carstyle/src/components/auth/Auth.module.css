@@ -1,0 +1,469 @@
+.authContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #1a1a1b;
+  animation: pageLoad 0.8s ease;
+}
+
+.authForm {
+  background-color: #2d2d2e;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  animation: formAppear 0.8s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.authForm::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  animation: formShine 3s infinite;
+}
+
+.authForm h2 {
+  color: #ffffff;
+  font-size: 28px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.authForm h2 svg {
+  width: 32px;
+  height: 32px;
+  fill: #8f8f8f;
+}
+
+.formGroup {
+  margin: 10px 0;
+  position: relative;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 12px 40px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #1a1a1b;
+  color: #8f8f8f;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.formGroup svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  fill: #8f8f8f;
+  transition: all 0.3s ease;
+}
+
+.formGroup input:focus {
+  border-color: #444;
+  outline: none;
+}
+
+.formGroup input:focus + svg {
+  fill: #ffffff;
+}
+
+.formGroup input::placeholder {
+  color: #666;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #1a1a1b;
+  color: #8f8f8f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.submitButton svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #2d2d2e;
+  color: #ffffff;
+}
+
+.submitButton:hover svg {
+  transform: translateX(5px);
+}
+
+.error {
+  color: #ff4e50;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(255, 78, 80, 0.1);
+  animation: shake 0.5s ease;
+}
+
+.switchAuth {
+  color: #8f8f8f;
+  margin-top: 20px;
+}
+
+.link {
+  color: #8f8f8f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.link svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.link:hover {
+  color: #ffffff;
+}
+
+.link:hover svg {
+  transform: translateX(3px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Анимация успешного входа */
+.successAnimation {
+  animation: success 0.5s ease;
+}
+
+@keyframes success {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.termsGroup {
+  margin: 15px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  position: relative;
+}
+
+.termsCheckbox {
+  margin-top: 3px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background: #1a1a1b;
+  border: 2px solid #333;
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.termsCheckbox:checked {
+  background: #1a1a1b;
+  border-color: #ffffff;
+}
+
+.termsCheckbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.termsCheckbox:hover {
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.termsText {
+  color: #8f8f8f;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+.termsLink {
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.termsLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.termsLink:hover::after {
+  width: 100%;
+}
+
+.termsLink:hover {
+  color: #4CAF50;
+}
+
+.captchaGroup {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.captchaGroup.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.captchaBlock {
+  margin: 20px 0;
+  padding: 20px;
+  background: #1a1a1b;
+  border-radius: 8px;
+  border: 1px solid #333;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.captchaBlock.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.captchaHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.captchaCheckbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background: #1a1a1b;
+  border: 2px solid #333;
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.captchaCheckbox:checked {
+  background: #1a1a1b;
+  border-color: #ffffff;
+}
+
+.captchaCheckbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.captchaCheckbox:hover {
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.captchaTitle {
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0;
+}
+
+.captchaContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.captchaInput {
+  width: 100px !important;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 18px;
+  text-transform: uppercase;
+  background: #1a1a1b;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+.captchaInput:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
+}
+
+.captchaImage {
+  background-color: #1a1a1b;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.captchaImage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.captchaImage:hover::before {
+  transform: translateX(100%);
+}
+
+.captchaImage:hover {
+  border-color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes pageLoad {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes formAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes formShine {
+  0% {
+    transform: translateX(-100%);
+  }
+  20%, 100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(-20px);
+  }
+}
+
+.modalEnter {
+  animation: modalFadeIn 0.3s ease forwards;
+}
+
+.modalExit {
+  animation: modalFadeOut 0.3s ease forwards;
+} 

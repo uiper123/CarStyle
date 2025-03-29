@@ -1,0 +1,432 @@
+.profileContainer {
+  padding: 6rem 2rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: calc(100vh - 80px);
+  background-color: #1a1a1b;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.profileCard {
+  background: #2d2d2e;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  color: #8f8f8f;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profileCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #3d3d3e;
+  animation: slideIn 0.5s ease-out;
+}
+
+.userIcon {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #2D2D2E;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.userIcon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.userIcon:hover .avatarImage {
+  transform: scale(1.1);
+}
+
+.defaultAvatar {
+  width: 100%;
+  height: 100%;
+  color: #8F8F8F;
+  padding: 20%;
+  background-color: #1a1a1b;
+  transition: transform 0.3s ease;
+}
+
+.userIcon:hover .defaultAvatar {
+  transform: scale(1.1);
+}
+
+.avatarUpload {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+}
+
+.userIcon:hover .avatarUpload {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.avatarUpload input {
+  display: none;
+}
+
+.avatarUpload label {
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.avatarUpload label:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.userInfo {
+  flex: 1;
+}
+
+.userInfo h2 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.editButton {
+  background: #3d3d3e;
+  color: #8f8f8f;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.editButton:hover {
+  background: #4d4d4e;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  color: #8f8f8f;
+  font-size: 0.9rem;
+}
+
+.formGroup input {
+  padding: 0.75rem;
+  background: #1a1a1b;
+  border: 1px solid #3d3d3e;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.formGroup input:disabled {
+  background: #2d2d2e;
+  cursor: not-allowed;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #8f8f8f;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.saveButton {
+  background: #8f8f8f;
+  color: #1a1a1b;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.saveButton:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.error {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideInDown 0.3s ease-out forwards;
+}
+
+.success {
+  color: #4caf50;
+  background: rgba(76, 175, 80, 0.1);
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideInDown 0.3s ease-out forwards;
+}
+
+.rentalHistory {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #3d3d3e;
+}
+
+.rentalHistory h3 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rentalList {
+  min-height: 200px;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #8f8f8f;
+  padding: 2rem;
+  background: #1a1a1b;
+  border-radius: 10px;
+}
+
+.emptyState svg {
+  font-size: 2rem;
+}
+
+.emptyState p {
+  font-size: 1.1rem;
+}
+
+.sectionDivider {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #3d3d3e;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.sectionTitle {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.sectionTitle:hover {
+  transform: translateX(5px);
+}
+
+.licenseInfo {
+  background: #1a1a1b;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.licenseInfo p {
+  margin: 0.5rem 0;
+  color: #8f8f8f;
+}
+
+.licenseInfo strong {
+  color: #ffffff;
+}
+
+.documentInfo {
+  background: #1a1a1b;
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
+.documentInfo p {
+  margin: 0.5rem 0;
+  color: #8f8f8f;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.documentInfo strong {
+  color: #ffffff;
+  min-width: 120px;
+}
+
+.documentUpload {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.documentUpload label {
+  background: #3d3d3e;
+  color: #8f8f8f;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.documentUpload label:hover {
+  background: #4d4d4e;
+  color: #ffffff;
+}
+
+.documentUpload input {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .profileContainer {
+    padding: 1rem;
+  }
+
+  .profileCard {
+    padding: 1.5rem;
+  }
+
+  .profileHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .userIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .userInfo h2 {
+    font-size: 1.5rem;
+  }
+
+  .formGroup input {
+    padding: 0.5rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
