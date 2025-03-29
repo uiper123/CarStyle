@@ -1,12 +1,11 @@
 /* src/styles/CarCard.css */
 .car-card {
-  background-color: #2d2d2e;
-  border-radius: 10px;
-  padding: 15px;
-  border: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
+  background: white;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .car-card:hover {
@@ -16,16 +15,16 @@
 
 .car-image-container {
   position: relative;
-  margin-bottom: 10px;
-  border-radius: 10px;
+  width: 100%;
+  height: 200px;
   overflow: hidden;
 }
 
 .car-image {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
 .image-overlay {
@@ -36,140 +35,129 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.car-card:hover .image-overlay {
+  opacity: 1;
 }
 
 .view-details-button {
-  padding: 12px 24px;
-  background-color: #ffffff;
-  color: #1a1a1b;
+  background: #007bff;
+  color: white;
   border: none;
+  padding: 0.8rem 1.5rem;
   border-radius: 25px;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .view-details-button:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.05);
+  background: #0056b3;
 }
 
 .rating-oval {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #2d2d2e;
-  color: #ffffff;
-  border-radius: 12px;
-  padding: 6px 12px;
-  font-size: 14px;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
   display: flex;
   align-items: center;
-  gap: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  z-index: 2;
+  gap: 0.5rem;
+  font-weight: bold;
+  color: #ffc107;
 }
 
 .rating-oval span {
-  color: #ffd700;
-  font-size: 16px;
+  color: #ffc107;
 }
 
 .car-info {
-  text-align: left;
-  font-family: 'Tilda Sans VF', sans-serif;
-  font-weight: 600;
-  background-color: #222223;
-  border-radius: 8px;
-  padding: 15px;
-  margin-top: 15px;
+  padding: 1.5rem;
 }
 
 .car-name {
-  font-size: 22px;
-  color: #ffffff;
-  margin-bottom: 15px;
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: 600;
 }
 
 .car-specs {
-  display: flex;
-  gap: 12px;
-  font-size: 14px;
-  color: #8f8f8f;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .car-specs span {
   display: flex;
   align-items: center;
-  gap: 8px;
-  transition: color 0.3s ease;
-  background-color: #2d2d2e;
-  padding: 8px 14px;
-  border-radius: 8px;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
 }
 
 .car-specs svg {
-  width: 18px;
-  height: 18px;
+  color: #007bff;
 }
 
 .car-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 15px;
-  padding-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
 }
 
 .car-price {
-  font-size: 20px;
-  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #28a745;
   margin: 0;
-  transition: color 0.3s ease;
 }
 
 .details-button {
-  background-color: #161616;
-  color: #8f8f8f;
-  border: none;
-  padding: 10px 20px;
-  font-size: 15px;
-  border-radius: 8px;
+  background: transparent;
+  border: 2px solid #007bff;
+  color: #007bff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
   cursor: pointer;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .details-button:hover {
-  background-color: #1a1a1b;
-  color: #ffffff;
+  background: #007bff;
+  color: white;
 }
 
 @media (max-width: 768px) {
-  .car-image {
-    height: 150px;
+  .car-card {
+    margin: 0 1rem;
   }
   
-  .view-details-button {
-    padding: 10px 20px;
-    font-size: 14px;
+  .car-image-container {
+    height: 180px;
   }
-
+  
+  .car-info {
+    padding: 1rem;
+  }
+  
   .car-name {
-    font-size: 20px;
+    font-size: 1.1rem;
   }
-
-  .car-specs {
-    font-size: 13px;
-  }
-
+  
   .car-price {
-    font-size: 18px;
+    font-size: 1.1rem;
   }
 }

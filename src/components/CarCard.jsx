@@ -12,7 +12,7 @@ const CarCard = ({ car }) => {
 
   const handleDetailsClick = (e) => {
     e.stopPropagation();
-    navigate(`/cars/${car.id}`);
+    navigate(`/cars/${car.car_id || car.id}`);
   };
 
   // Анимация для карточки
@@ -51,15 +51,7 @@ const CarCard = ({ car }) => {
 
   // Получаем URL изображения
   const getImageUrl = () => {
-    console.log('Car data structure:', {
-      car,
-      images: car.images,
-      firstImage: car.images?.[0],
-      imageType: car.images?.[0] ? typeof car.images[0] : 'no image'
-    });
-
     if (!car.images || !Array.isArray(car.images) || car.images.length === 0) {
-      console.log('No valid images array found');
       return 'https://via.placeholder.com/300x200?text=No+Image';
     }
 
@@ -77,6 +69,12 @@ const CarCard = ({ car }) => {
   const formatMileage = (mileage) => {
     if (!mileage) return '0 км';
     return `${Number(mileage).toLocaleString()} км`;
+  };
+
+  // Форматирование цены
+  const formatPrice = (price) => {
+    if (!price) return '0 ₽/день';
+    return `${Number(price).toLocaleString()} ₽/день`;
   };
 
   // Добавим вывод данных при рендере
@@ -157,7 +155,7 @@ const CarCard = ({ car }) => {
           </span>
         </div>
         <div className="car-bottom">
-          <p className="car-price">{car.price?.toLocaleString()} ₽/день</p>
+          <p className="car-price">{formatPrice(car.price)}</p>
           <motion.button 
             className="details-button"
             onClick={handleDetailsClick}

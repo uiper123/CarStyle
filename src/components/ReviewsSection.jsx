@@ -26,22 +26,23 @@ const ReviewsSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    fetchReviews();
-    fetchCars();
-  }, []);
+    const fetchReviews = async () => {
+      try {
+        setLoading(true);
+        // Временно возвращаем пустой массив вместо запроса к API
+        setReviews([]);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching reviews:', err);
+        setError('Unable to load reviews at this time');
+        setReviews([]);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const fetchReviews = async () => {
-    try {
-      const apiUrl = import.meta.env.VITE_API_URL || '';
-      const response = await axios.get(`${apiUrl}/api/reviews`);
-      setReviews(response.data);
-    } catch (error) {
-      console.error('Error fetching reviews:', error);
-      toast.error('Не удалось загрузить отзывы');
-    } finally {
-      setLoading(false);
-    }
-  };
+    fetchReviews();
+  }, []);
 
   const fetchCars = async () => {
     try {

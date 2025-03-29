@@ -18,14 +18,13 @@ export default defineConfig({
       }
     }
   },
-  optimizeDeps: {
-    include: ['html2pdf.js']
-  },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      'html2pdf.js': 'html2pdf.js'
+      '@': path.resolve(__dirname, './src')
     }
+  },
+  optimizeDeps: {
+    include: ['html2pdf.js']
   },
   server: {
     port: 3000
