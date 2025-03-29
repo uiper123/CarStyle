@@ -7,6 +7,7 @@ import { FaStar, FaStarHalfAlt, FaRegStar, FaUser, FaTrash, FaHeart, FaRegHeart,
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import styles from './Reviews.module.css';
+import './ReviewsSection.css';
 
 const ReviewsSection = () => {
   const { user, token } = useAuth();
@@ -185,23 +186,28 @@ const ReviewsSection = () => {
   };
 
   if (loading) {
-    return <div className={styles.loading}>Загрузка отзывов...</div>;
+    return <div className="loading-container">
+      <div className="loading-spinner"></div>
+      <p>Loading reviews...</p>
+    </div>;
+  }
+
+  if (error) {
+    return <div className="error-container">
+      <p className="error-message">{error}</p>
+    </div>;
+  }
+
+  if (reviews.length === 0) {
+    return <div className="no-reviews-container">
+      <p>No reviews available at the moment.</p>
+    </div>;
   }
 
   return (
-    <section className={styles.testimonialsSection}>
-      <div className={styles.testimonialsContainer}>
-        <motion.div 
-          className={styles.testimonialsHeader}
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h2>Отзывы наших клиентов</h2>
-          <p>Узнайте, что говорят о наших автомобилях</p>
-        </motion.div>
-
+    <section className="reviews-section">
+      <div className="container">
+        <h2 className="section-title">Customer Reviews</h2>
         {user && (
           <button 
             className={styles.addReviewButton}
@@ -257,42 +263,36 @@ const ReviewsSection = () => {
           </form>
         )}
 
-        <div className={styles.testimonialsGrid}>
-          {reviews.map((review) => (
-            <motion.div 
-              key={review.review_id} 
-              className={styles.testimonialCard}
+        <div className="reviews-grid">
+          {reviews.map((review, index) => (
+            <motion.div
+              key={review.review_id}
+              className="review-card"
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className={styles.reviewHeader}>
-                <div className={styles.userInfo}>
+              <div className="review-header">
+                <div className="reviewer-info">
                   {review.avatar_url ? (
                     <img 
                       src={review.avatar_url} 
-                      alt="User avatar" 
-                      className={styles.avatar}
+                      alt={`${review.firstname} ${review.lastname}`}
+                      className="reviewer-avatar"
                     />
                   ) : (
                     <FaUser className={styles.avatarIcon} />
                   )}
-                  <div>
-                    <div className={styles.userName}>
-                      {`${review.firstname} ${review.lastname}`}
+                  <div className="reviewer-details">
+                    <h3>{`${review.firstname} ${review.lastname}`}</h3>
+                    <div className="rating">
+                      {renderStars(review.rating)}
                     </div>
-                    <div className={styles.reviewDate}>
-                      {new Date(review.created_at).toLocaleDateString('ru-RU')}
-                    </div>
-                    {review.user_role === 'admin' && (
-                      <span className={styles.adminRole}>Администратор</span>
-                    )}
-                    {review.user_role === 'staff' && (
-                      <span className={styles.staffRole}>Сотрудник</span>
-                    )}
                   </div>
                 </div>
+                <span className="review-date">
+                  {new Date(review.created_at).toLocaleDateString('ru-RU')}
+                </span>
                 {canDeleteReview(review) && (
                   <button
                     className={styles.deleteButton}
@@ -305,18 +305,14 @@ const ReviewsSection = () => {
               </div>
 
               {review.car_id && (
-                <div className={styles.reviewCar}>
+                <div className="review-car">
                   Отзыв о: {review.car_brand} {review.car_model} ({review.car_year})
                 </div>
               )}
 
-              <div className={styles.rating}>
-                {renderStars(review.rating)}
-              </div>
+              <p className="review-text">{review.comment || 'No comment available'}</p>
 
-              <p className={styles.comment}>{review.comment}</p>
-
-              <div className={styles.reviewActions}>
+              <div className="review-actions">
                 <button
                   className={`${styles.likeButton} ${review.is_liked ? styles.liked : ''}`}
                   onClick={() => handleLike(review.review_id)}
