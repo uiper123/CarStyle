@@ -1,19 +1,33 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  optimizeDeps: {
-    exclude: ['react-animated-cursor']
-  },
-  server: {
-    port: 3000,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3002',
-        changeOrigin: true
+  base: '/',
+  build: {
+    outDir: 'dist',
+    sourcemap: true,
+    rollupOptions: {
+      external: ['html2pdf.js'],
+      output: {
+        globals: {
+          'html2pdf.js': 'html2pdf'
+        }
       }
     }
+  },
+  optimizeDeps: {
+    include: ['html2pdf.js']
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      'html2pdf.js': 'html2pdf.js'
+    }
+  },
+  server: {
+    port: 3000
   }
 })
