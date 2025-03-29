@@ -1,15 +1,20 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/',
   build: {
     outDir: 'dist',
     sourcemap: true,
     rollupOptions: {
+      external: ['html2pdf.js'],
       output: {
-        manualChunks: undefined
+        globals: {
+          'html2pdf.js': 'html2pdf'
+        }
       }
     }
   },
@@ -18,7 +23,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      'html2pdf.js': 'html2pdf.js/dist/html2pdf.bundle.min.js'
+      '@': path.resolve(__dirname, './src'),
+      'html2pdf.js': 'html2pdf.js'
     }
   },
   server: {
