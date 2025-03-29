@@ -1,0 +1,168 @@
+.user-orders-section {
+  padding: 24px;
+  background: #222223;
+  border-radius: 12px;
+  margin-top: 24px;
+}
+
+.user-orders-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.user-orders-list {
+  display: grid;
+  gap: 20px;
+}
+
+.user-order-card {
+  background: #2a2a2b;
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.2s ease;
+}
+
+.user-order-card:hover {
+  transform: translateY(-2px);
+}
+
+.user-order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #3a3a3b;
+}
+
+.user-order-id {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.user-order-status {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.user-order-status.rented {
+  background: #e6f3ff;
+  color: #0055cc;
+}
+
+.user-order-status.pending {
+  background: #fff8e6;
+  color: #946c00;
+}
+
+.user-order-status.active {
+  background: #e6f5ed;
+  color: #0a5a2d;
+}
+
+.user-order-status.completed {
+  background: #f2f4f7;
+  color: #475467;
+}
+
+.user-order-status.cancelled {
+  background: #fee7e7;
+  color: #b42318;
+}
+
+.user-order-content {
+  display: grid;
+  gap: 16px;
+}
+
+.user-order-car h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 4px;
+}
+
+.user-order-car p {
+  font-size: 16px;
+  color: #a0a0a0;
+  margin: 0;
+}
+
+.user-order-dates {
+  display: grid;
+  gap: 8px;
+}
+
+.user-order-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-label {
+  color: #a0a0a0;
+  font-size: 16px;
+}
+
+.date-value {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.user-order-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #3a3a3b;
+}
+
+.price-label {
+  color: #a0a0a0;
+  font-size: 16px;
+}
+
+.price-value {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.user-orders-loading,
+.user-orders-error,
+.user-orders-empty {
+  text-align: center;
+  padding: 40px;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.user-orders-error {
+  color: #ff4d4d;
+}
+
+@media (max-width: 768px) {
+  .user-orders-section {
+    padding: 16px;
+  }
+
+  .user-order-card {
+    padding: 16px;
+  }
+
+  .user-order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .user-order-dates {
+    grid-template-columns: 1fr;
+  }
+} 

@@ -1,0 +1,448 @@
+.admin-dashboard {
+  display: flex;
+  min-height: calc(100vh - 80px);
+  background-color: #f5f5f5;
+  margin-top: 80px;
+}
+
+.admin-sidebar {
+  width: 300px;
+  background-color: #212529;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-sidebar h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #e50000;
+  font-weight: 700;
+}
+
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-nav-item {
+  display: block;
+  padding: 12px 20px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-nav-item:hover {
+  background-color: rgba(229, 0, 0, 0.2);
+}
+
+.admin-nav-item.active {
+  background-color: #e50000;
+  color: white;
+  font-weight: 600;
+}
+
+.admin-nav-item.back-button {
+  margin-top: 30px;
+  text-align: center;
+  background-color: #343a40;
+}
+
+.admin-nav-item.back-button:hover {
+  background-color: #495057;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* Common styles for admin sections */
+.admin-section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+
+.admin-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 15px;
+}
+
+.admin-section-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #212529;
+}
+
+.admin-button {
+  padding: 10px 16px;
+  background-color: #e50000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-button:hover {
+  background-color: #c10000;
+}
+
+.admin-button.secondary {
+  background-color: #6c757d;
+}
+
+.admin-button.secondary:hover {
+  background-color: #5a6268;
+}
+
+.admin-button.active {
+  background-color: #343a40;
+}
+
+.admin-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.admin-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.admin-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.admin-modal {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 500px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.admin-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.admin-modal-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #212529;
+}
+
+.admin-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6c757d;
+}
+
+.admin-modal-content {
+  padding: 20px;
+}
+
+.admin-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 15px 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.admin-form-group {
+  margin-bottom: 20px;
+}
+
+.admin-form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #212529;
+}
+
+.admin-form-input,
+.admin-form-select,
+.admin-form-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.admin-form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.admin-form-error {
+  color: #e50000;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Status badges for car management */
+.car-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.car-status.available {
+  background-color: #28a745;
+  color: white;
+}
+
+.car-status.rented {
+  background-color: #007bff;
+  color: white;
+}
+
+.car-status.maintenance {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+/* Status badges for rental requests */
+.request-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-pending {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.status-approved {
+  background-color: #28a745;
+  color: white;
+}
+
+.status-active {
+  background-color: #007bff;
+  color: white;
+}
+
+.status-completed {
+  background-color: #6c757d;
+  color: white;
+}
+
+.status-cancelled {
+  background-color: #dc3545;
+  color: white;
+}
+
+.status-rejected {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Request detail sections */
+.request-detail-section {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.request-detail-section h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #343a40;
+}
+
+.request-detail-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.document-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.request-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Review status badges */
+.review-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.review-status.pending {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.review-status.approved {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Star rating in reviews */
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.star-rating .filled {
+  color: #ffc107;
+}
+
+.star-rating .empty {
+  color: #e4e5e9;
+}
+
+.star-rating span {
+  font-size: 18px;
+  margin-right: 2px;
+}
+
+/* Dictionary Management Styles */
+.dictionary-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 15px;
+}
+
+.dictionary-tab {
+  padding: 10px 16px;
+  background-color: #f8f9fa;
+  color: #495057;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dictionary-tab:hover {
+  background-color: #e9ecef;
+}
+
+.dictionary-tab.active {
+  background-color: #e50000;
+  color: white;
+  border-color: #e50000;
+}
+
+.dictionary-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .admin-dashboard {
+    flex-direction: column;
+  }
+  
+  .admin-sidebar {
+    width: 100%;
+    order: 2;
+  }
+  
+  .admin-content {
+    order: 1;
+  }
+  
+  .admin-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .admin-filter-buttons {
+    margin-top: 15px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .admin-modal {
+    width: 95%;
+  }
+  
+  .dictionary-tabs {
+    flex-direction: column;
+    gap: 5px;
+  }
+} 

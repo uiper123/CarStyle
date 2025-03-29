@@ -1,0 +1,159 @@
+/* src/styles/AdditionalSections.css */
+
+.additional-sections {
+    padding: 60px 20px;
+    background-color: #1a1a1b; /* Темный фон */
+    color: #8F8F8F;
+    margin-top: 40px;
+  }
+  
+  .our-fleet {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .our-fleet h2 {
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .fleet-description {
+    font-size: 18px;
+    color: #cccccc;
+    margin-bottom: 40px;
+  }
+  
+  .cars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  .car-card {
+    background-color: #2D2D2E;
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .car-image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .car-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .rating-oval {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(45, 45, 46, 0.9);
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #ffffff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .rating-oval span {
+    color: #FFD700;
+  }
+  
+  .car-info {
+    text-align: left;
+  }
+  
+  .car-name {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  
+  .car-specs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    color: #8F8F8F;
+    font-size: 14px;
+  }
+  
+  .car-specs span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .car-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .car-price {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  .details-button {
+    background-color: #1a1a1b;
+    color: #8F8F8F;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+  }
+  
+  .details-button:hover {
+    background-color: #333;
+    color: #ffffff;
+  }
+  
+  @media (max-width: 1024px) {
+    .cars-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .our-fleet h2 {
+      font-size: 28px;
+    }
+  
+    .fleet-description {
+      font-size: 16px;
+    }
+  
+    .cars-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .car-image-container {
+      height: 180px;
+    }
+  }

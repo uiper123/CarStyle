@@ -1,0 +1,90 @@
+/* src/styles/WhyChooseUs.css */
+
+.why-choose-us {
+    padding: 60px 20px;
+    background-color: #2A2A2B; /* Новый цвет фона (светлее серый) */
+    color: #8F8F8F;
+  }
+  
+  .why-choose-us-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .why-choose-us h2 {
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .advantage-card {
+    background-color: #2D2D2E;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+  }
+  
+  .advantage-card:hover {
+    transform: translateY(-15px); /* Как в AdditionalSections */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .advantage-icon {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .advantage-icon img {
+    width: 80px;
+    height: 80px;
+    filter: brightness(0) saturate(100%) invert(50%) sepia(0%) saturate(0%) hue-rotate(0deg);
+    transition: transform 0.3s ease;
+  }
+  
+  .advantage-card:hover .advantage-icon img {
+    transform: scale(1.1);
+  }
+  
+  .advantage-card h3 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+  
+  .advantage-card p {
+    font-size: 16px;
+    color: #cccccc;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .why-choose-us h2 {
+      font-size: 28px;
+    }
+  
+    .advantages-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .advantage-card {
+      padding: 20px;
+    }
+
+    .advantage-icon img {
+      width: 60px;
+      height: 60px;
+    }
+  }

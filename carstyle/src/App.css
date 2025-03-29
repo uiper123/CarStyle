@@ -1,0 +1,83 @@
+.app-content {
+    opacity: 0; /* Изначально скрыто */
+  }
+  
+  .app-content.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Плавное появление за 0.5 секунды */
+  }
+  
+  .preloader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .temp-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    color: #8f8f8f;
+  }
+  
+  .temp-content h2 {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  .temp-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .temp-content h3 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+/* Toastify styles */
+.Toastify__toast {
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.Toastify__toast--success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.Toastify__toast--error {
+  background-color: #f44336;
+  color: white;
+}
+
+.Toastify__toast--info {
+  background-color: #2196f3;
+  color: white;
+}
+
+.Toastify__toast--warning {
+  background-color: #ff9800;
+  color: white;
+}
+
+.Toastify__close-button {
+  color: white;
+}
+
+.Toastify__progress-bar {
+  background: rgba(255, 255, 255, 0.7);
+}

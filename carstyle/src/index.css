@@ -1,0 +1,18 @@
+@import url('https://fonts.cdnfonts.com/s/289170/TildaSans-VF.woff2');
+
+* {
+  font-family: 'Tilda Sans VF', sans-serif;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1b;
+}
+
+/* Ensure header doesn't overlap */
+header {
+  z-index: 1000 !important;
+}

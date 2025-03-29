@@ -1,0 +1,116 @@
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+/* Полупрозрачный оверлей */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #272a2ba8; /* Измени цвет и прозрачность здесь */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* Выше оверлея */
+  color: white;
+  max-width: 800px;
+  padding: 20px;
+  padding-top: 80px; /* Учитываем высоту шапки */
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #cccccc;
+}
+
+.rent-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.rent-button {
+  background-color: #2D2D2E;
+  color: #8F8F8F;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rent-button:hover {
+  background-color: #1a1a1b;
+}
+
+.rent-button .icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: calc(80vh + 60px);
+    top: -5px;
+  }
+
+  .hero-background {
+    background-attachment: scroll;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .rent-button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
